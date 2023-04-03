@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Welcome to program menu!</title>
+</head>
+<body>
+<h1 th:text="'Welcome to program menu!'">Welcome to program menu!</h1>
+<h3>Program menu:</h3>
+<a th:href="@{/table}">View students table</a> <br>
+<a th:href="@{/addStudent}">Add new student</a> <br>
+</body>
+</html>

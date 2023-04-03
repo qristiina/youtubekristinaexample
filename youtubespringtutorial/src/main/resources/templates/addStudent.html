@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Student</title>
+    <style>
+    .back-to-menu {
+      background-color: green;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 10px;
+    }
+    .back-to-menu:hover {
+      background-color: darkgreen;
+    }
+  </style>
+</head>
+
+<body>
+<h3>Add Student</h3>
+
+
+<td th:if="${errors != null}">
+    <tr th:each="error : ${errors}">
+<td th:text="${error.field}" />
+<td th:text="${error.message}" />
+</tr>
+</td>
+
+
+<table>
+    <tr>
+        <td>name:</td>
+        <td>email:</td>
+        <td>dob:</td>
+    </tr>
+
+    <tr>
+        <form action="/addStudent" th:object="${request}" method="post">
+            <td><input type="text" th:field="${request.name}"/></td>
+            <td><input type="text" th:field="${request.email}"/></td>
+            <td><input type="date" th:field="${request.dob}"/></td>
+            <td>
+                <input type="submit" value="Add Student"/>
+                <input type="reset" value="Clear"/>
+            </td>
+        </form>
+
+    </tr>
+    <tr>
+        <td colspan="4">
+            <a href="/welcome" class="back-to-menu">Back to menu</a>
+        </td>
+    </tr>
+</table>
+
+
+
+</body>
+</html>
